@@ -122,12 +122,14 @@ stages:
     - task: UseDotNet@2
       displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
       inputs:
+        packageType: 'sdk'
         version: '$(dotnetSdkVersion)'
+        includePreviewVersions: true
     - task: DotNetCoreCLI@2
       displayName: 'Build the project - $(buildConfiguration)'
       inputs:
         command: 'build'
-        projects: '$(System.DefaultWorkingDirectory)/*/* Tailspin.SpaceGame.Web.UITests'
+        projects: '$(System.DefaultWorkingDirectory)/**/*UITests.csproj'
         arguments: '--configuration $(buildConfiguration)'
     - task: DotNetCoreCLI@2
       displayName: 'Run unit tests - $(buildConfiguration)'
