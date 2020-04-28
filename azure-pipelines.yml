@@ -24,7 +24,9 @@ stages:
     - task: UseDotNet@2
       displayName: 'Use .NET Core SDK $(dotnetSdkVersion)'
       inputs:
+        packageType: 'sdk'
         version: '$(dotnetSdkVersion)'
+        includePreviewVersions: true
 
     - task: Npm@1
       displayName: 'Run npm install'
