@@ -127,7 +127,7 @@ stages:
       displayName: 'Build the project - $(buildConfiguration)'
       inputs:
         command: 'build'
-        projects: '$(System.DefaultWorkingDirectory)/**/*UITests/*.csproj'
+        projects: '$(System.DefaultWorkingDirectory)/*/* Tailspin.SpaceGame.Web.UITests'
         arguments: '--configuration $(buildConfiguration)'
     - task: DotNetCoreCLI@2
       displayName: 'Run unit tests - $(buildConfiguration)'
